@@ -1,0 +1,29 @@
+.movie-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+}
+.main-content{
+  background-color: #fff;
+  width: 85%;
+}
+.movie-title {
+  display: flex;
+  justify-content: center;
+}
+.movie {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;  
+}
+.poster img {
+  margin: 10px;
+  border: 1px solid;
+}
+
+.movie-info {
+  margin: 10px;
+}

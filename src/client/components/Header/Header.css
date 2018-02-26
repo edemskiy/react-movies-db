@@ -1,0 +1,16 @@
+.header {
+  background-color: #3e3e3e;
+}
+.header a {
+  color: #fff;
+}
+
+.header a:hover {
+  text-decoration: none;
+}
+
+.header span {
+  font-size: 30px;
+  margin: 0;
+  padding: 10px;
+}

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: #efefef;
+  height: 100vh;
+}
+.search-bar {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+.search-bar input {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 32px;
+}
+.search-results {
+  width: 100%;
+  border: 1px solid;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 5px;
+  background-color: #fff;
+}

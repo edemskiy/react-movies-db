@@ -1,0 +1,39 @@
+.movie-preview {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: flex-start;
+  padding: 5px 0;
+  border-bottom: 1px solid;
+}
+.movie-preview:hover {
+  background-color: #cfdbff;
+}
+
+.poster-container {
+  max-width: 55px;
+}
+.poster-container img{
+  height: auto;
+  width: 100%;
+}
+.movie-data {
+  padding: 0 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.movie-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+.movie-year {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
