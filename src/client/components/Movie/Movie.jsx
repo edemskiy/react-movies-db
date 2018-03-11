@@ -1,18 +1,21 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
+import apikey from '../../constants/api';
 import './Movie.css';
 
 class Movie extends React.Component {
   constructor(props) {
     super(props);
     this.state = { movie: {} };
-    fetch(`http://www.omdbapi.com/?apikey=60fb6e8f&i=${props.match.params.movieID}&plot=full`)
+    fetch(`http://www.omdbapi.com/?apikey=${apikey}&i=${props.match.params.movieID}&plot=full`)
       .then(response => response.json())
       .then((data) => {
         this.setState({ movie: data || {} });
       });
   }
   render() {
+    const filterKeys = ['Poster', 'Plot', 'Metascore', 'Ratings', 'imdbVotes', 'imdbID',
+      'DVD', 'Website', 'Response'];
     return (
       <div className="movie-container">
         <div className="main-content">
@@ -26,26 +29,17 @@ class Movie extends React.Component {
             <div className="movie-info">
               <Table bordered condensed hover>
                 <tbody>
-                  <tr>
-                    <td>Year</td>
-                    <td>{this.state.movie.Year}</td>
-                  </tr>
-                  <tr>
-                    <td>Main actors</td>
-                    <td>{this.state.movie.Actors}</td>
-                  </tr>
-                  <tr>
-                    <td>Director</td>
-                    <td>{this.state.movie.Director}</td>
-                  </tr>
-                  <tr>
-                    <td>Release Date</td>
-                    <td>{this.state.movie.Released}</td>
-                  </tr>
-                  <tr>
-                    <td>Rating</td>
-                    <td>{this.state.movie.Rated}</td>
-                  </tr>
+                  {
+                  Object.keys(this.state.movie)
+                  .filter(key => filterKeys.indexOf(key) === -1)
+                  .map((item, n) =>
+                    (
+                      <tr key={n}>
+                        <td>{item}</td>
+                        <td>{String(this.state.movie[item])}</td>
+                      </tr>
+                    ))
+                  }
                 </tbody>
               </Table>
             </div>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MoviePreview from '../MoviePreview/MoviePreview';
+import apikey from '../../constants/api';
 import './SearchBar.css';
 
 class SearchBar extends Component {
@@ -9,7 +10,7 @@ class SearchBar extends Component {
   }
 
   seachForMovie() {
-    fetch(`http://www.omdbapi.com/?apikey=60fb6e8f&s=${this.input.value}`)
+    fetch(`http://www.omdbapi.com/?apikey=${apikey}&s=${this.input.value}`)
       .then(response => response.json())
       .then((data) => {
         this.setState({ searchList: data.Search || [] });
