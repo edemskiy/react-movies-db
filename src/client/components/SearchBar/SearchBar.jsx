@@ -30,7 +30,7 @@ class SearchBar extends Component {
             <div className="search-results">
               {
                 this.state.searchList
-                  .map((item, number) => <MoviePreview key={number} movie={item} />)
+                  .map(item => <MoviePreview key={item.imdbID} movie={item} />)
               }
             </div>
           }

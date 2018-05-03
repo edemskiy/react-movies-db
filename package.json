@@ -16,7 +16,8 @@
     "react-router-dom": "^4.1.2",
     "react-test-renderer": "^15.6.1",
     "redux": "https://registry.npmjs.org/redux/-/redux-3.7.1.tgz",
-    "redux-saga": "^0.15.4"
+    "redux-saga": "^0.15.4",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "eslint": "3.19.0",

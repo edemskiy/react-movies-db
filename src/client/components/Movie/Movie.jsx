@@ -1,9 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import shortid from 'shortid';
 import { Table } from 'react-bootstrap';
 import apikey from '../../constants/api';
 import './Movie.css';
 
 class Movie extends React.Component {
+  // put in a separate file
+  static createNewProperty(property) {
+    return {
+      id: shortid.generate(),
+      property,
+    };
+  }
   constructor(props) {
     super(props);
     this.state = { movie: {} };
@@ -32,11 +41,12 @@ class Movie extends React.Component {
                   {
                   Object.keys(this.state.movie)
                   .filter(key => filterKeys.indexOf(key) === -1)
-                  .map((item, n) =>
+                  .map(item => this.createNewProperty(item))
+                  .map(item =>
                     (
-                      <tr key={n}>
-                        <td>{item}</td>
-                        <td>{String(this.state.movie[item])}</td>
+                      <tr key={item.id}>
+                        <td>{item.property}</td>
+                        <td>{String(this.state.movie[item.property])}</td>
                       </tr>
                     ))
                   }
@@ -49,5 +59,21 @@ class Movie extends React.Component {
     );
   }
 }
+
+Movie.defaultProps = {
+  match: {
+    params: {
+      movieID: '',
+    },
+  },
+};
+
+Movie.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      movieID: PropTypes.string,
+    }),
+  }),
+};
 
 export default Movie;
